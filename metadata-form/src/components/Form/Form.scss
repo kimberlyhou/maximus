@@ -1,0 +1,144 @@
+body{
+    background: linear-gradient(#4696d0, #0000f8);
+}
+.root{
+    font-family: sans-serif;
+}
+.form-container{
+   // background-color: white;
+   
+    opacity: .9;
+    height: 80vh;
+    width: 90vw;
+//    / box-shadow: 5px 10px 50px rgb(65, 89, 155);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all .5s ease;
+    flex-direction: column;
+    
+
+}
+
+input, label{
+    display: block;
+    
+}
+
+form{
+    //background-color: #ccc;
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    height: 90%;
+    width: 90%;
+    flex: 1;
+    //border: 1px solid black;
+    border-radius: 3%;
+    
+}
+input:not([type="submit"]){
+    background-color: transparent;
+    outline: 0;
+    border-width: 0 0 2px;
+    border-color: blue;
+    margin: 2px;   
+    height: 50px;
+    width: 100%;   
+
+}   
+
+.button{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    margin: 5px;
+}
+
+
+   
+   
+
+.right{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    flex: 1;
+    
+}
+
+.text{
+    text-align: center;
+}
+ input[type="submit"] {
+    //background-color: #ccc;
+    height: 100%;
+    cursor: pointer;
+} 
+.button button{
+    //background-color: #ccc;
+    height: 100%;
+    cursor: pointer;
+    margin: 3px;
+
+}
+
+.form-group
+{
+    margin: 10px;
+}
+.grey-container{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.clipboard{
+    height: 70%;
+    width: 50%;
+    background-color: transparent;
+    padding: 20px;
+    border: 1px solid rgb(0, 0, 0);
+}
+
+.container{
+   
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+
+.drag{
+    height: 60vh;
+    width: 100%;
+    background-color: black;
+    opacity: 0.8;
+}
+.form-control{
+    margin: 10px;
+    background: transparent;
+    outline: 0;
+    border-width: 0 0 2px;
+    border-color: blue;
+}
+textarea.form-control{
+    margin: 10px;
+    background: transparent;
+    outline: 0;
+    border-width: 0 0 2px;
+    border-color: blue;
+    height: 50px;
+    width: 100%;  
+}
+.logo{
+    height: 100%;
+    width: 100%;
+}
