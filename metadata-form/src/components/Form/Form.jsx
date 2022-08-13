@@ -41,7 +41,7 @@ export default function Form() {
           
            {/*  <input className='form-control' onChange={() => setFileState(true)} ref={fileRef} id='fup' type='file' name='file'/> */}
             <div id="drop_zone" onDrag={()=>{console.log('jhey')}} onDrop={()=>{console.log('hey')}} className="drag">
-              <img className='logo' src={require('../../assets/unnamed.jpg')}></img>
+              <img className='logo' src={require('../../assets/MAXIMUS-SJA-1B.jpg')}></img>
             </div>
           </div>
           <div className='form-group '> 
