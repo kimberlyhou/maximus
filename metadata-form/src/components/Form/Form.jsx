@@ -35,9 +35,9 @@ export default function Form() {
     { !toggle ?
     <div className='form-container' >
       <h2>Metadata Writer</h2>         
-        <lable>For feilds that have multiple inputs seperate by comma</lable>                     
+        <label>For fields that have multiple inputs separated by comma</label>
         <form id='my-form'  method='POST' action="https://intense-spire-76967.herokuapp.com/file" encType='multipart/form-data'>
-        <div className="feild">
+        <div className="field">
           
            {/*  <input className='form-control' onChange={() => setFileState(true)} ref={fileRef} id='fup' type='file' name='file'/> */}
             <div id="drop_zone" onDrag={()=>{console.log('jhey')}} onDrop={()=>{console.log('hey')}} className="drag">
@@ -47,28 +47,28 @@ export default function Form() {
           <div className='form-group '> 
        
           
-            <div className="feild">
+            <div className="field">
             
             <input placeholder='Full Name' type='text' name='fullName'/>
             </div>
-            <div className="feild">
+            <div className="field">
             
             <input placeholder='Last Name' type='text' name='lastName'/>
             </div>
             
-            <div className="feild">
+            <div className="field">
             
             <input placeholder='Contact Number' type='text' name='number'/>
             </div>
-            <div className="feild">
+            <div className="field">
             
             <input placeholder='Email' type='text' name='Email'/>
             </div>
-            <div className="feild">
+            <div className="field">
               <input placeholder='Has this song been previously released or distributed '  />				
                                   
             </div>
-            <div className="feild">
+            <div className="field">
             
             <input placeholder='Song Name' type='text' name='title'/>
             </div>
@@ -77,54 +77,54 @@ export default function Form() {
            
             </div>
             <div className="form-group">
-            <div className="feild">
+            <div className="field">
             
             <input placeholder='Artist' type='text' name='artist'/>
             </div>
-            <div className="feild">
+            <div className="field">
            
             <input placeholder='BPM' type='text' name='bpm'/>
             </div>
-            <div className="feild">
+            <div className="field">
           
             <input placeholder='Inital Key' type='text' name='key'/>
             </div>
-            <div className="feild">
+            <div className="field">
           
             <input placeholder='Genre' type='text' name='genre'/>
             </div>
-            <div className="feild">
+            <div className="field">
             
             <input placeholder='SongWriter(s)/Composer' type='text' name='composer' />
             </div>
-            <div className="feild">
+            <div className="field">
             
             <textarea placeholder='Description' className='form-control' type='text' name='desc'/>      
             </div>
             </div>
            
             <div className='form-group'>
-            <div className="feild">
+            <div className="field">
             
-             <input placeholder='Intruments' type='text' name='intruments' /> 
+             <input placeholder='Instruments' type='text' name='instruments' />
               </div>
-            <div className="feild">
+            <div className="field">
             
             <input placeholder='Mood/Field' type='text' name='mood' />
             </div>
-            <div className="feild">
+            <div className="field">
            
             <input placeholder='Tempo' type='text' name='tempo' />
             </div>
-            <div className="feild">
+            <div className="field">
             
             <input placeholder='Keywords' type='text' name='keywords' />
             </div>
-            <div className="feild">
+            <div className="field">
             
             <input placeholder='Sounds Like' type='text' name='soundsLike' />
             </div>
-            <div className="feild">
+            <div className="field">
            
             <textarea placeholder='Lyrics' className='form-control' type='text' name='lyrics' />
             </div>
@@ -160,7 +160,7 @@ Songwriter(s): <br></br>
 <br></br>
 METADATA<br></br>
 Keywords: {obj['keywords']} <br></br>
-Instruments: {obj['intruments']} <br></br>
+Instruments: {obj['instruments']} <br></br>
 Tempo: {obj['tempo']} <br></br>
 Mood/Feel: {obj['mood']} <br></br>
 Sounds Like: {obj['soundsLike']} <br></br>
@@ -171,7 +171,7 @@ For licensing, please contact: Maxwell Elefant (max@maximusmusicgroup.com ), Ste
 
       </div>
       <div className="clipboard">
-        <lable>Lyrics: </lable>
+        <label>Lyrics: </label>
         {obj['lyrics']}
         </div>
     </div>
