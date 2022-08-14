@@ -1,5 +1,5 @@
-import logo from './logo.svg';
 import './App.css';
+import './bootstrap/dist/css/bootstrap.min.css';
 import Form from './components/Form/Form.jsx'
 
 function App() {

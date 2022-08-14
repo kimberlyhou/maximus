@@ -41,12 +41,8 @@ export default function Form() {
               {/*  <input className='form-control' onChange={() => setFileState(true)} ref={fileRef} id='fup' type='file' name='file'/> */}
               <div
                 id="drop_zone"
-                onDrag={() => {
-                  console.log("jhey");
-                }}
-                onDrop={() => {
-                  console.log("hey");
-                }}
+                onDrag={() => {}}
+                onDrop={() => {}}
                 className="drag"
               >
                 <img
@@ -58,23 +54,76 @@ export default function Form() {
             </div>
             <div className="form-group ">
               <div className="field">
-                <input placeholder="Full Name" type="text" name="fullName" />
+                <input placeholder="First Name" type="text" name="firstName" />
               </div>
               <div className="field">
                 <input placeholder="Last Name" type="text" name="lastName" />
               </div>
 
               <div className="field">
-                <input placeholder="Contact Number" type="text" name="number" />
+                <input placeholder="Contact Number" type="tel" name="number" />
               </div>
               <div className="field">
-                <input placeholder="Email" type="text" name="Email" />
-              </div>
-              <div className="field">
-                <input placeholder="Has this song been previously released or distributed?" />
+                <input placeholder="Email" type="email" name="email" />
               </div>
               <div className="field">
                 <input placeholder="Song Name" type="text" name="title" />
+              </div>
+              <div className="field">
+                <label for="previousReleaseOrDistribution">
+                  Has this song been previously released or distributed?
+                </label>
+                <select
+                  id="previousReleaseOrDistribution"
+                  class="select"
+                  name="previousReleaseOrDistribution"
+                >
+                  <option value="yes">Yes</option>
+                  <option value="no">No</option>
+                </select>
+              </div>
+              <div className="field">
+                <label for="explicitLyrics">
+                  Does this song have explicit lyrics?
+                </label>
+                <select
+                  id="explicitLyrics"
+                  class="select"
+                  name="explicitLyrics"
+                >
+                  <option value="yes">Yes</option>
+                  <option value="no">No</option>
+                </select>
+              </div>
+              <div className="field">
+                <label for="hasPublisher">
+                  Is this song listed with a publisher?
+                </label>
+                <select id="hasPublisher" class="select" name="hasPublisher">
+                  <option value="yes">Yes</option>
+                  <option value="no">No</option>
+                </select>
+              </div>
+              <div className="field">
+                <label for="opportunitySubmission">
+                  Are you submitting this for a specific opportunity we sent
+                  you?
+                </label>
+                <select
+                  id="opportunitySubmission"
+                  class="select"
+                  name="opportunitySubmission"
+                >
+                  <option value="yes">Yes</option>
+                  <option value="no">No</option>
+                </select>
+              </div>
+              <div className="field">
+                <input
+                  placeholder="If yes, what is the opportunity name?"
+                  type="text"
+                  name="opportunityName"
+                />
               </div>
             </div>
             <div className="form-group">
@@ -85,14 +134,14 @@ export default function Form() {
                 <input placeholder="BPM" type="text" name="bpm" />
               </div>
               <div className="field">
-                <input placeholder="Inital Key" type="text" name="key" />
+                <input placeholder="Initial Key" type="text" name="key" />
               </div>
               <div className="field">
                 <input placeholder="Genre" type="text" name="genre" />
               </div>
               <div className="field">
                 <input
-                  placeholder="SongWriter(s)/Composer"
+                  placeholder="Songwriter(s)/Composer(s)"
                   type="text"
                   name="composer"
                 />
@@ -143,7 +192,6 @@ export default function Form() {
           </form>
 
           <div className="button">
-            {/* <input  className='btn btn-primary' value='Get File' type='submit' form='my-form'  onClick={onSubmit}  /> */}
             <button className="btn btn-primary" onClick={onSubmit}>
               Get Comment Data
             </button>
@@ -154,31 +202,45 @@ export default function Form() {
           <div className="container">
             <div className="grey-container">
               <div ref={divRef} className="clipboard">
-                Song Name: {obj["title"]}
-                <br></br>
-                Artist: {obj["artist"]}
-                <br></br>
-                BPM: {obj["bpm"]}
-                <br></br>
-                Genre: {obj["genre"]}
-                <br></br>
-                Description: {obj["desc"]}
-                <br></br>
-                Initial Key: {obj["key"]}
-                <br></br>
-                <br></br>
-                RIGHTS HOLDERS<br></br>
-                Songwriter(s): <br></br>
-                {obj["composer"].split(",").map((w) => {
+                <div>First Name: {obj["firstName"]} </div>
+                <div>Last Name: {obj["lastName"]}</div>
+                <div>Contact Number: {obj["number"]}</div>
+                <div>Email: {obj["email"]}</div>
+                <div>
+                  Has this song been previously released or distributed:{" "}
+                  {obj["previousReleaseOrDistribution"]}
+                </div>
+                <div>
+                  Does this song have explicit lyrics: {obj["explicitLyrics"]}
+                </div>
+                <div>
+                  Is this song listed with a publisher: {obj["hasPublisher"]}
+                </div>
+                <div>
+                  Are you submitting this for a specific opportunity we sent
+                  you: {obj["opportunitySubmission"]}
+                </div>
+                <div>Opportunity Name: {obj["opportunityName"]}</div>
+                <br />
+                <div>Song Name: {obj["title"]}</div>
+                <div>Artist: {obj["artist"]}</div>
+                <div>BPM: {obj["bpm"]}</div>
+                <div>Genre: {obj["genre"]}</div>
+                <div>Description: {obj["desc"]}</div>
+                <div>Initial Key: {obj["key"]}</div>
+                <br />
+                <div>RIGHTS HOLDERS</div>
+                <div>Songwriter(s):</div>
+                {obj["composer"].split(",").map((writer) => {
                   return (
                     <>
-                      {w}
-                      <br key={w}></br>
+                      {writer}
+                      <br key={writer}></br>
                     </>
                   );
-                })}{" "}
-                <br></br>
-                <br></br>
+                })}
+                <br />
+                <br />
                 METADATA<br></br>
                 Keywords: {obj["keywords"]} <br></br>
                 Instruments: {obj["instruments"]} <br></br>
@@ -187,16 +249,18 @@ export default function Form() {
                 Sounds Like: {obj["soundsLike"]} <br></br>
                 <br></br>
                 SYNC LICENSING For licensing, please contact: Maxwell Elefant
-                (max@maximusmusicgroup.com ), Stephen Antonelli
+                (max@maximusmusicgroup.com), Stephen Antonelli
                 (stephen@maximusmusicgroup.com) !!!-ONE STOP READY-!!!
               </div>
               <div className="clipboard">
-                <label>Lyrics: </label>
+                <div>
+                  <label>Lyrics: </label>
+                </div>
                 {obj["lyrics"]}
               </div>
             </div>
             <button
-              className="btn btn-primary"
+              className="btn btn-primary back-button"
               onClick={() => setToggle(false)}
             >
               Back
