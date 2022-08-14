@@ -113,7 +113,7 @@ export default function Form() {
                   <option value="no">No</option>
                 </select>
               </div>
-              <div className="field">
+              <div className="field bottom">
                 <input
                   placeholder="If yes, what is the opportunity name?"
                   type="text"
@@ -148,7 +148,7 @@ export default function Form() {
               </div>
               <div className="field">
                 <textarea
-                  placeholder="Description"
+                  placeholder="Description (Mood, Feel, Instruments, Keywords, etc. separated by commas"
                   className="form-control"
                   type="text"
                   name="desc"
@@ -162,14 +162,13 @@ export default function Form() {
                   name="lyrics"
                 />
               </div>
+              <div className="button">
+                <button className="btn btn-primary" onClick={onSubmit}>
+                  Get Comment Data
+                </button>
+              </div>
             </div>
           </form>
-
-          <div className="button">
-            <button className="btn btn-primary" onClick={onSubmit}>
-              Get Comment Data
-            </button>
-          </div>
         </div>
       ) : (
         <>
