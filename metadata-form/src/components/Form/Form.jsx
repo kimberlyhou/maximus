@@ -148,7 +148,7 @@ export default function Form() {
               </div>
               <div className="field">
                 <textarea
-                  placeholder="Description (Mood, Feel, Instruments, Keywords, etc. separated by commas"
+                  placeholder="Description (Mood, Feel, Instruments, Keywords, etc. separated by commas)"
                   className="form-control"
                   type="text"
                   name="desc"
