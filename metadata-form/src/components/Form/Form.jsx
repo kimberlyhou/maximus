@@ -1,18 +1,13 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef } from "react";
 import "./Form.scss";
 
 export default function Form() {
   const [toggle, setToggle] = useState(false);
-  const [fileState, setFileState] = useState(false);
-  const [lyrics, setLyricsToggle] = useState(false);
   const [obj, setObj] = useState({});
-  let formRef = useRef();
   let divRef = useRef();
-  let fileRef = useRef();
 
   function onSubmit(e) {
     e.preventDefault();
-    //console.log(e.parentNode)
     let form = document.querySelector("form");
     const data = new FormData(form);
     const json = {};
@@ -24,13 +19,14 @@ export default function Form() {
     setToggle(true);
   }
 
-  //console.log(obj['composer'].split(','))
   return (
     <>
       {!toggle ? (
         <div className="form-container">
           <h2>Metadata Writer</h2>
-          <label>For fields that have multiple inputs separated by comma</label>
+          <div>
+            Tool to convert song metadata into a pre-formatted structure
+          </div>
           <form
             id="my-form"
             method="POST"
@@ -38,7 +34,6 @@ export default function Form() {
             encType="multipart/form-data"
           >
             <div className="field">
-              {/*  <input className='form-control' onChange={() => setFileState(true)} ref={fileRef} id='fup' type='file' name='file'/> */}
               <div
                 id="drop_zone"
                 onDrag={() => {}}
@@ -139,9 +134,14 @@ export default function Form() {
               <div className="field">
                 <input placeholder="Genre" type="text" name="genre" />
               </div>
+            </div>
+            <div className="form-group">
               <div className="field">
-                <input
-                  placeholder="Songwriter(s)/Composer(s)"
+                <textarea
+                  placeholder={
+                    "Songwriter(s)/Composer(s) with IPI #s \nExample: FirstName LastName (BMI #12345678)"
+                  }
+                  className="form-control"
                   type="text"
                   name="composer"
                 />
@@ -152,32 +152,6 @@ export default function Form() {
                   className="form-control"
                   type="text"
                   name="desc"
-                />
-              </div>
-            </div>
-
-            <div className="form-group">
-              <div className="field">
-                <input
-                  placeholder="Instruments"
-                  type="text"
-                  name="instruments"
-                />
-              </div>
-              <div className="field">
-                <input placeholder="Mood/Field" type="text" name="mood" />
-              </div>
-              <div className="field">
-                <input placeholder="Tempo" type="text" name="tempo" />
-              </div>
-              <div className="field">
-                <input placeholder="Keywords" type="text" name="keywords" />
-              </div>
-              <div className="field">
-                <input
-                  placeholder="Sounds Like"
-                  type="text"
-                  name="soundsLike"
                 />
               </div>
               <div className="field">
@@ -231,32 +205,32 @@ export default function Form() {
                 <br />
                 <div>RIGHTS HOLDERS</div>
                 <div>Songwriter(s):</div>
-                {obj["composer"].split(",").map((writer) => {
+                {obj["composer"].split(/[\n]+/).map((writer) => {
                   return (
                     <>
-                      {writer}
-                      <br key={writer}></br>
+                      <div>{writer}</div>
                     </>
                   );
                 })}
                 <br />
                 <br />
-                METADATA<br></br>
-                Keywords: {obj["keywords"]} <br></br>
-                Instruments: {obj["instruments"]} <br></br>
-                Tempo: {obj["tempo"]} <br></br>
-                Mood/Feel: {obj["mood"]} <br></br>
-                Sounds Like: {obj["soundsLike"]} <br></br>
-                <br></br>
-                SYNC LICENSING For licensing, please contact: Maxwell Elefant
-                (max@maximusmusicgroup.com), Stephen Antonelli
-                (stephen@maximusmusicgroup.com) !!!-ONE STOP READY-!!!
+                <div>
+                  SYNC LICENSING For licensing, please contact: Maxwell Elefant
+                  (max@maximusmusicgroup.com), Stephen Antonelli
+                  (stephen@maximusmusicgroup.com) !!!-ONE STOP READY-!!!
+                </div>
               </div>
               <div className="clipboard">
                 <div>
                   <label>Lyrics: </label>
                 </div>
-                {obj["lyrics"]}
+                {obj["lyrics"].split(/[\n]+/).map((lyrics) => {
+                  return (
+                    <>
+                      <div>{lyrics}</div>
+                    </>
+                  );
+                })}
               </div>
             </div>
             <button
