@@ -78,13 +78,13 @@ export default function Form() {
                 </select>
               </div>
               <div className="field">
-                <label for="explicitLyrics">
-                  Does this song have explicit lyrics?
+                <label for="exclusiveTrack">
+                  Are you submitting as an Exclusive Track to MMG?
                 </label>
                 <select
-                  id="explicitLyrics"
+                  id="exclusiveTrack"
                   class="select"
-                  name="explicitLyrics"
+                  name="exclusiveTrack"
                 >
                   <option value="yes">Yes</option>
                   <option value="no">No</option>
@@ -120,7 +120,7 @@ export default function Form() {
                   name="opportunityName"
                 />
               </div>
-            </div>
+            </div> 
             <div className="form-group">
               <div className="field">
                 <input placeholder="Artist" type="text" name="artist" />
@@ -184,7 +184,7 @@ export default function Form() {
                   {obj["previousReleaseOrDistribution"]}
                 </div>
                 <div>
-                  Does this song have explicit lyrics: {obj["explicitLyrics"]}
+                  Are you submitting as an Exclusive Track to MMG: {obj["exclusiveTrack"]}
                 </div>
                 <div>
                   Is this song listed with a publisher: {obj["hasPublisher"]}
