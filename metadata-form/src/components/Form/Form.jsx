@@ -215,8 +215,8 @@ export default function Form() {
                 <br />
                 <div>
                   SYNC LICENSING For licensing, please contact: Maxwell Elefant
-                  (max@maximusmusicgroup.com), Stephen Antonelli
-                  (stephen@maximusmusicgroup.com) !!!-ONE STOP READY-!!!
+                  (max@maximusmusicgroup.com), Jason Grigg
+                  (jason@maximusmusicgroup.com) !!!-ONE STOP READY-!!!
                 </div>
               </div>
               <div className="clipboard">
